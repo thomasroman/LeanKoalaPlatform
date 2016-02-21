@@ -18,7 +18,7 @@ class IntegrationListener
     public function onInit(IntegrationInitEvent $event)
     {
         $integrationContainer = $event->getIntegrationContainer();
-        $url = $this->router->generate('koalamon_integration_smoke_basic_homepage', ['project' => $event->getProject()->getIdentifier()]);
+        $url = $this->router->generate('leankoala_integration_smoke_basic_homepage', ['project' => $event->getProject()->getIdentifier()]);
         $integrationContainer->addIntegration(new Integration('Smoke', '/images/integrations/smoke.png', 'Crawling your website for anomalies.', $url));
     }
 }

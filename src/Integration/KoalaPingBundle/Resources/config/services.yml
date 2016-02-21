@@ -1,6 +1,6 @@
 services:
 
-    koalamonintegration.koalaping.init:
+    leankoalaintegration.koalaping.init:
         class: LeanKoala\Integration\KoalaPingBundle\EventListener\IntegrationListener
         arguments: [ @service_container ]
         tags:

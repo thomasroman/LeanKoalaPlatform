@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('koalamon_integration_koala_ping');
+        $rootNode = $treeBuilder->root('leankoala_integration_koala_ping');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

@@ -1,0 +1,32 @@
+leankoala_integration_js_error_scanner:
+    resource: "@LeanKoalaIntegrationJsErrorScannerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+leankoala_integration_missing_request:
+    resource: "@LeanKoalaIntegrationMissingRequestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+leankoala_integration_webhook:
+    resource: "@LeanKoalaIntegrationWebhookBundle/Resources/config/routing.yml"
+    prefix:   /
+
+leankoala_integration_koala_ping:
+    resource: "@LeanKoalaIntegrationKoalaPingBundle/Resources/config/routing.yml"
+    prefix:   /
+
+leankoala_integration_google_page_speed:
+    resource: "@LeanKoalaIntegrationGooglePageSpeedBundle/Resources/config/routing.yml"
+    prefix:   /
+
+leankoala_integration_site_info:
+    resource: "@LeanKoalaIntegrationSiteInfoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+leankoala_integration_smoke_basic:
+    resource: "@LeanKoalaIntegrationSmokeBasicBundle/Resources/config/routing.yml"
+    prefix:   /
+
+leankoala_integration_smoke:
+    resource: "@LeanKoalaIntegrationSmokeBundle/Resources/config/routing.yml"
+    prefix:   /

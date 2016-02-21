@@ -24,7 +24,7 @@ class DefaultController extends SystemAwareIntegrationController
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
 
-        return $this->render('KoalamonIntegrationSiteInfoBundle:Default:index.html.twig',
+        return $this->render('LeanKoalaIntegrationSiteInfoBundle:Default:index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),

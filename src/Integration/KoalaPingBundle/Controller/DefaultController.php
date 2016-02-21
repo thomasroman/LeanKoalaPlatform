@@ -28,7 +28,7 @@ class DefaultController extends SystemAwareIntegrationController
     public function indexAction()
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
-        return $this->render('KoalamonIntegrationKoalaPingBundle:Default:index.html.twig',
+        return $this->render('LeanKoalaIntegrationKoalaPingBundle:Default:index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),

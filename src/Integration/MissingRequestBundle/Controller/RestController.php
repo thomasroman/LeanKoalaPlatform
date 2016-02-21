@@ -15,7 +15,7 @@ class RestController extends Controller
         }
 
         $collections = $this->getDoctrine()
-            ->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')
+            ->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')
             ->findBy([], ['name' => 'ASC']);
 
         $systemCollections = array();

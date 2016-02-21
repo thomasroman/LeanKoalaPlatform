@@ -1,38 +1,38 @@
-koalamon_integration_smoke_config_project:
+leankoala_integration_smoke_config_project:
     path:     /p/{project}/integrations/smoke/config/
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:Config:project }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:Config:project }
 
-koalamon_integration_smoke_config:
+leankoala_integration_smoke_config:
     path:     /p/integrations/smoke/config/
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:Config:index }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:Config:index }
 
 # LittleSEO
 
-koalamon_integration_smoke_seo_homepage:
+leankoala_integration_smoke_seo_homepage:
     path:     /p/{project}/integrations/smoke/seo/
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:LittleSeo:index }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:LittleSeo:index }
 
-koalamon_integration_smoke_seo_store:
+leankoala_integration_smoke_seo_store:
     path:     /p/{project}/integrations/smoke/seo/store
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:LittleSeo:store }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:LittleSeo:store }
 
 # XPath Checker
 
-koalamon_integration_smoke_xpath_homepage:
+leankoala_integration_smoke_xpath_homepage:
     path:     /p/{project}/integrations/smoke/xpath/
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:XPathChecker:index }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:XPathChecker:index }
 
-koalamon_integration_smoke_xpath_store:
+leankoala_integration_smoke_xpath_store:
     path:     /p/{project}/integrations/smoke/xpath/store
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:XPathChecker:store }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:XPathChecker:store }
 
 
 # Json Validator
 
-koalamon_integration_smoke_json_homepage:
+leankoala_integration_smoke_json_homepage:
     path:     /p/{project}/integrations/smoke/json/
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:JsonValidator:index }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:JsonValidator:index }
 
-koalamon_integration_smoke_json_store:
+leankoala_integration_smoke_json_store:
     path:     /p/{project}/integrations/smoke/json/store
-    defaults: { _controller: KoalamonIntegrationSmokeBundle:JsonValidator:store }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:JsonValidator:store }

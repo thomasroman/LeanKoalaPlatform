@@ -18,7 +18,7 @@ class IntegrationListener
     public function onInit(IntegrationInitEvent $event)
     {
         $integrationContainer = $event->getIntegrationContainer();
-        $url = $this->router->generate('koalamon_integration_js_error_scanner_homepage', ['project' => $event->getProject()->getIdentifier()]);
+        $url = $this->router->generate('leankoala_integration_js_error_scanner_homepage', ['project' => $event->getProject()->getIdentifier()]);
         $integrationContainer->addIntegration(new Integration('JsErrorScanner (lite)', '/images/integrations/jserror.png', 'Scanning your systems for JavaScript errors.', $url));
     }
 }

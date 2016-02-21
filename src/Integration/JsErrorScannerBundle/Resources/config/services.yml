@@ -1,6 +1,6 @@
 services:
 
-    koalamonintegration.jserrerscanner.init:
+    leankoalaintegration.jserrerscanner.init:
         class: LeanKoala\Integration\JsErrorScannerBundle\EventListener\IntegrationListener
         arguments: [ @service_container ]
         tags:

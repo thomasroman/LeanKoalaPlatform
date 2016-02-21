@@ -10,7 +10,7 @@
             server will test your websites for missing requests.</p>
 
         <div>
-            <form action="{{ path('koalamon_integration_missing_request_system_store', {'project': project.identifier, 'system': system.id}) }}" method="post">
+            <form action="{{ path('leankoala_integration_missing_request_system_store', {'project': project.identifier, 'system': system.id}) }}" method="post">
                 {% for collection in allCollections %}
                     <div style="padding-top: 20px">
                         <input name="collections[{{ collection.id }}]" type="checkbox" {% if collection in collections %}checked="checked"{% endif %} style="padding-right: 20px">{{ collection.name }}

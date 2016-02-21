@@ -1,6 +1,6 @@
 services:
 
-    koalamonintegration.webhook.init:
+    leankoalaintegration.webhook.init:
         class: LeanKoala\Integration\WebhookBundle\EventListener\IntegrationListener
         arguments: [ @service_container ]
         tags:

@@ -16,13 +16,13 @@ class CollectionController extends ProjectAwareController
         $this->assertUserRights(UserRole::ROLE_ADMIN);
 
         $collection = new Collection();
-        return $this->render('KoalamonIntegrationMissingRequestBundle:Collection:new.html.twig', ['collection' => $collection]);
+        return $this->render('LeanKoalaIntegrationMissingRequestBundle:Collection:new.html.twig', ['collection' => $collection]);
     }
 
     public function editAction(Collection $collection)
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
-        return $this->render('KoalamonIntegrationMissingRequestBundle:Collection:new.html.twig', ['collection' => $collection]);
+        return $this->render('LeanKoalaIntegrationMissingRequestBundle:Collection:new.html.twig', ['collection' => $collection]);
     }
 
     public function deleteAction(Collection $collection)
@@ -45,7 +45,7 @@ class CollectionController extends ProjectAwareController
         $em->remove($collection);
         $em->flush();
 
-        return $this->redirectToRoute('koalamon_integration_missing_request_homepage');
+        return $this->redirectToRoute('leankoala_integration_missing_request_homepage');
     }
 
     public function storeAction(\Symfony\Component\HttpFoundation\Request $request)
@@ -53,7 +53,7 @@ class CollectionController extends ProjectAwareController
         $this->assertUserRights(UserRole::ROLE_ADMIN);
 
         if ($request->get('id')) {
-            $collection = $this->getDoctrine()->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')->find($request->get('id'));
+            $collection = $this->getDoctrine()->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')->find($request->get('id'));
             if ($this->getUser()->getUserRole($collection->getProject())->getRole() > UserRole::ROLE_ADMIN) {
                 throw new AccessDeniedException('You are not allowed to access this page with the given parameters');
             }
@@ -87,6 +87,6 @@ class CollectionController extends ProjectAwareController
 
         $em->flush();
 
-        return $this->redirectToRoute('koalamon_integration_missing_request_homepage');
+        return $this->redirectToRoute('leankoala_integration_missing_request_homepage');
     }
 }

@@ -24,7 +24,7 @@ class XPathCheckerController extends SystemAwareIntegrationController
     public function indexAction()
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
-        return $this->render('KoalamonIntegrationSmokeBundle:XPathChecker:index.html.twig',
+        return $this->render('LeanKoalaIntegrationSmokeBundle:XPathChecker:index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),

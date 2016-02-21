@@ -1,6 +1,6 @@
 services:
 
-    koalamonintegration.smoke.seo.init:
+    leankoalaintegration.smoke.seo.init:
         class: LeanKoala\Integration\SmokeBundle\EventListener\IntegrationListener
         arguments: [ @service_container ]
         tags:

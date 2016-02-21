@@ -1,11 +1,11 @@
-koalamon_integration_site_info_homepage:
+leankoala_integration_site_info_homepage:
     path:     /p/{project}/integrations/siteinfo/
-    defaults: { _controller: KoalamonIntegrationSiteInfoBundle:Default:index }
+    defaults: { _controller: LeanKoalaIntegrationSiteInfoBundle:Default:index }
 
-koalamon_integration_site_info_store:
+leankoala_integration_site_info_store:
     path:     /p/{project}/integrations/siteinfo/store/
-    defaults: { _controller: KoalamonIntegrationSiteInfoBundle:Default:store }
+    defaults: { _controller: LeanKoalaIntegrationSiteInfoBundle:Default:store }
 
-koalamon_integration_site_info_rest:
+leankoala_integration_site_info_rest:
     path:     /p/integrations/siteinfo/rest/
-    defaults: { _controller: KoalamonIntegrationSiteInfoBundle:Default:restGetSystems }
+    defaults: { _controller: LeanKoalaIntegrationSiteInfoBundle:Default:restGetSystems }

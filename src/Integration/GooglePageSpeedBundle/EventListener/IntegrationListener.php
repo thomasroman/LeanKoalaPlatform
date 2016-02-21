@@ -18,7 +18,7 @@ class IntegrationListener
     public function onInit(IntegrationInitEvent $event)
     {
         $integrationContainer = $event->getIntegrationContainer();
-        $url = $this->router->generate('koalamon_integration_google_page_speed_homepage', ['project' => $event->getProject()->getIdentifier()]);
+        $url = $this->router->generate('leankoala_integration_google_page_speed_homepage', ['project' => $event->getProject()->getIdentifier()]);
         $integrationContainer->addIntegration(new Integration('Google Page Speed', '/images/integrations/pagespeed.png', 'Check the google page speed score.', $url));
     }
 }

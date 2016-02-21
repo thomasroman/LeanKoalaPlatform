@@ -27,7 +27,7 @@
             that group urls. For example a "Google Analytics Collection" would contain two elements: the loading of the javascript file and the collect data request.
         </p>
 
-        <form method="post" action="{{ path('koalamon_integration_missing_request_collection_store', {'project': project.identifier }) }}">
+        <form method="post" action="{{ path('leankoala_integration_missing_request_collection_store', {'project': project.identifier }) }}">
 
             <input type="hidden" value="{{ collection.id }}" name="id">
 

@@ -25,7 +25,7 @@ class LittleSeoController extends SystemAwareIntegrationController
     public function indexAction()
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
-        return $this->render('KoalamonIntegrationSmokeBundle:LittleSeo:index.html.twig',
+        return $this->render('LeanKoalaIntegrationSmokeBundle:LittleSeo:index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),

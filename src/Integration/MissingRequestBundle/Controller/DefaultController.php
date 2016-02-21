@@ -15,7 +15,7 @@ class DefaultController extends ProjectAwareController
     private function getCollections(System $system)
     {
         return $this->getDoctrine()
-            ->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')
+            ->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')
             ->findBySystem($system);
     }
 
@@ -36,8 +36,8 @@ class DefaultController extends ProjectAwareController
             $systemCollections[] = ['system' => $system, 'collections' => $this->getCollections($system), 'subsystems' => $subSystems];
         }
 
-        $collections = $this->getDoctrine()->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')->findBy(['project' => $this->getProject()], ['name' => 'ASC']);
+        $collections = $this->getDoctrine()->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')->findBy(['project' => $this->getProject()], ['name' => 'ASC']);
 
-        return $this->render('KoalamonIntegrationMissingRequestBundle:Default:index.html.twig', ['collections' => $collections, 'systemCollections' => $systemCollections]);
+        return $this->render('LeanKoalaIntegrationMissingRequestBundle:Default:index.html.twig', ['collections' => $collections, 'systemCollections' => $systemCollections]);
     }
 }

@@ -17,14 +17,14 @@ class SystemController extends ProjectAwareController
         $this->assertUserRights(UserRole::ROLE_ADMIN);
 
         $collections = $this->getDoctrine()
-            ->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')
+            ->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')
             ->findBySystem($system);
 
         $allCollections = $this->getDoctrine()
-            ->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')
+            ->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')
             ->findBy(['project' => $this->getProject()], ['name' => 'ASC']);
 
-        return $this->render('KoalamonIntegrationMissingRequestBundle:System:edit.html.twig', ['system' => $system, 'collections' => $collections, 'allCollections' => $allCollections]);
+        return $this->render('LeanKoalaIntegrationMissingRequestBundle:System:edit.html.twig', ['system' => $system, 'collections' => $collections, 'allCollections' => $allCollections]);
     }
 
     public function storeAction(\Symfony\Component\HttpFoundation\Request $request, System $system)
@@ -32,7 +32,7 @@ class SystemController extends ProjectAwareController
         $this->assertUserRights(UserRole::ROLE_ADMIN);
 
         $collections = $this->getDoctrine()
-            ->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')
+            ->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')
             ->findBySystem($system);
 
         $em = $this->getDoctrine()->getManager();
@@ -48,7 +48,7 @@ class SystemController extends ProjectAwareController
 
         foreach ($collections as $collection) {
             $collectionObj = $this->getDoctrine()
-                ->getRepository('KoalamonIntegrationMissingRequestBundle:Collection')
+                ->getRepository('LeanKoalaIntegrationMissingRequestBundle:Collection')
                 ->find($collection);
             $collectionObj->addSystem($system);
             $em->persist($collectionObj);
@@ -56,6 +56,6 @@ class SystemController extends ProjectAwareController
 
         $em->flush();
 
-        return $this->redirectToRoute('koalamon_integration_missing_request_homepage');
+        return $this->redirectToRoute('leankoala_integration_missing_request_homepage');
     }
 }

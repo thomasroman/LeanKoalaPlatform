@@ -53,7 +53,7 @@ class DefaultController extends SystemAwareIntegrationController
 
         sort($this->rules);
 
-        return $this->render('KoalamonIntegrationSmokeBasicBundle:Default:index.html.twig',
+        return $this->render('LeanKoalaIntegrationSmokeBasicBundle:Default:index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),

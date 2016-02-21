@@ -47,7 +47,7 @@ class ConfigController extends SystemAwareIntegrationController
         foreach ($projects as $project) {
             $activeSystems = $this->getActiveSystemsForProject($project);
             foreach ($activeSystems as $activeSystem) {
-                $projectUrls[] = $this->generateUrl('koalamon_integration_smoke_basic_config_project', ['project' => $project->getIdentifier(), 'system' => $activeSystem[0]['system']->getId()], true) . '?api_key=' . $project->getApiKey();
+                $projectUrls[] = $this->generateUrl('leankoala_integration_smoke_basic_config_project', ['project' => $project->getIdentifier(), 'system' => $activeSystem[0]['system']->getId()], true) . '?api_key=' . $project->getApiKey();
             }
 
         }
@@ -75,7 +75,7 @@ class ConfigController extends SystemAwareIntegrationController
             }
         }
 
-        return $this->render('KoalamonIntegrationSmokeBasicBundle:Config:smoke.yml.twig',
+        return $this->render('LeanKoalaIntegrationSmokeBasicBundle:Config:smoke.yml.twig',
             [
                 'littleSeoActiveSystems' => $littleSeoActiveSystems,
                 'systems' => $systems,

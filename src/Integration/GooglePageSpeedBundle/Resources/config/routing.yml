@@ -1,11 +1,11 @@
-koalamon_integration_google_page_speed_homepage:
+leankoala_integration_google_page_speed_homepage:
     path:     /p/{project}/integrations/googlepagespeed/
-    defaults: { _controller: KoalamonIntegrationGooglePageSpeedBundle:Default:index }
+    defaults: { _controller: LeanKoalaIntegrationGooglePageSpeedBundle:Default:index }
 
-koalamon_integration_google_page_speed_store:
+leankoala_integration_google_page_speed_store:
     path:     /p/{project}/integrations/googlepagespeed/store/
-    defaults: { _controller: KoalamonIntegrationGooglePageSpeedBundle:Default:store }
+    defaults: { _controller: LeanKoalaIntegrationGooglePageSpeedBundle:Default:store }
 
-koalamon_integration_google_page_speed_rest:
+leankoala_integration_google_page_speed_rest:
     path:     /p/integrations/googlepagespeed/rest/
-    defaults: { _controller: KoalamonIntegrationGooglePageSpeedBundle:Default:restGetSystems }
+    defaults: { _controller: LeanKoalaIntegrationGooglePageSpeedBundle:Default:restGetSystems }

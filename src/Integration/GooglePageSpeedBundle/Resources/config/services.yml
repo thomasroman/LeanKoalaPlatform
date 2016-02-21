@@ -1,6 +1,6 @@
 services:
 
-    koalamonintegration.googlepagespeed.init:
+    leankoalaintegration.googlepagespeed.init:
         class: LeanKoala\Integration\GooglePageSpeedBundle\EventListener\IntegrationListener
         arguments: [ @service_container ]
         tags:

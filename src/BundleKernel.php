@@ -13,14 +13,15 @@ class BundleKernel
     public static function registerBundles($environment)
     {
         $bundles = [
-            new \LeanKoala\Integration\KoalaPingBundle\KoalamonIntegrationKoalaPingBundle(),
-            new \LeanKoala\Integration\WebhookBundle\KoalamonIntegrationWebhookBundle(),
-            new \LeanKoala\Integration\MissingRequestBundle\KoalamonIntegrationMissingRequestBundle(),
-            new \LeanKoala\Integration\GooglePageSpeedBundle\KoalamonIntegrationGooglePageSpeedBundle(),
-            new \LeanKoala\Integration\JsErrorScannerBundle\KoalamonIntegrationJsErrorScannerBundle(),
-            new \LeanKoala\Integration\SiteInfoBundle\KoalamonIntegrationSiteInfoBundle(),
-            new \LeanKoala\Integration\SmokeBundle\KoalamonIntegrationSmokeBundle(),
-            new \LeanKoala\Integration\SmokeBasicBundle\KoalamonIntegrationSmokeBasicBundle(),
+            new \LeanKoala\CoreBundle\LeanKoalaCoreBundle(),
+            new \LeanKoala\Integration\KoalaPingBundle\LeanKoalaIntegrationKoalaPingBundle(),
+            new \LeanKoala\Integration\WebhookBundle\LeanKoalaIntegrationWebhookBundle(),
+            new \LeanKoala\Integration\MissingRequestBundle\LeanKoalaIntegrationMissingRequestBundle(),
+            new \LeanKoala\Integration\GooglePageSpeedBundle\LeanKoalaIntegrationGooglePageSpeedBundle(),
+            new \LeanKoala\Integration\JsErrorScannerBundle\LeanKoalaIntegrationJsErrorScannerBundle(),
+            new \LeanKoala\Integration\SiteInfoBundle\LeanKoalaIntegrationSiteInfoBundle(),
+            new \LeanKoala\Integration\SmokeBundle\LeanKoalaIntegrationSmokeBundle(),
+            new \LeanKoala\Integration\SmokeBasicBundle\LeanKoalaIntegrationSmokeBasicBundle(),
         ];
 
         return $bundles;

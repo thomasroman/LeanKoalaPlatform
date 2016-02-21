@@ -1,19 +1,19 @@
-koalamon_integration_smoke_basic_rest:
+leankoala_integration_smoke_basic_rest:
     path:     /p/integrations/smokebasic/rest/
-    defaults: { _controller: KoalamonIntegrationSmokeBasicBundle:Default:restGetSystems }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBasicBundle:Default:restGetSystems }
 
-koalamon_integration_smoke_basic_homepage:
+leankoala_integration_smoke_basic_homepage:
     path:     /p/{project}/integrations/smokebasic/
-    defaults: { _controller: KoalamonIntegrationSmokeBasicBundle:Default:index }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBasicBundle:Default:index }
 
-koalamon_integration_smoke_basic_store:
+leankoala_integration_smoke_basic_store:
     path:     /p/{project}/integrations/smokebasic/store
-    defaults: { _controller: KoalamonIntegrationSmokeBasicBundle:Default:store }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBasicBundle:Default:store }
 
-koalamon_integration_smoke_basic_config_project:
+leankoala_integration_smoke_basic_config_project:
     path:     /p/{project}/integrations/smokebasic/config/{system}/
-    defaults: { _controller: KoalamonIntegrationSmokeBasicBundle:Config:project }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBasicBundle:Config:project }
 
-koalamon_integration_smoke_basic_config:
+leankoala_integration_smoke_basic_config:
     path:     /p/integrations/smokebasic/config/
-    defaults: { _controller: KoalamonIntegrationSmokeBasicBundle:Config:index }
+    defaults: { _controller: LeanKoalaIntegrationSmokeBasicBundle:Config:index }
