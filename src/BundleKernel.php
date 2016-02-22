@@ -15,7 +15,6 @@ class BundleKernel
         $bundles = [
             new \LeanKoala\CoreBundle\LeanKoalaCoreBundle(),
             new \LeanKoala\Integration\KoalaPingBundle\LeanKoalaIntegrationKoalaPingBundle(),
-            new \LeanKoala\Integration\WebhookBundle\LeanKoalaIntegrationWebhookBundle(),
             new \LeanKoala\Integration\MissingRequestBundle\LeanKoalaIntegrationMissingRequestBundle(),
             new \LeanKoala\Integration\GooglePageSpeedBundle\LeanKoalaIntegrationGooglePageSpeedBundle(),
             new \LeanKoala\Integration\JsErrorScannerBundle\LeanKoalaIntegrationJsErrorScannerBundle(),
