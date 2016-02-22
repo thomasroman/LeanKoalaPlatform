@@ -6,10 +6,6 @@ leankoala_integration_missing_request:
     resource: "@LeanKoalaIntegrationMissingRequestBundle/Resources/config/routing.yml"
     prefix:   /
 
-leankoala_integration_webhook:
-    resource: "@LeanKoalaIntegrationWebhookBundle/Resources/config/routing.yml"
-    prefix:   /
-
 leankoala_integration_koala_ping:
     resource: "@LeanKoalaIntegrationKoalaPingBundle/Resources/config/routing.yml"
     prefix:   /
