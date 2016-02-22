@@ -1,3 +1,0 @@
-leankoala_integration_webhook:
-    path:     /p/{project}/integration/{hookName}/
-    defaults: { _controller: LeanKoalaIntegrationWebhookBundle:Default:newRelic }
