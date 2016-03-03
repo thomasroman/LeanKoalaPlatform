@@ -28,7 +28,8 @@ class DefaultController extends SystemAwareIntegrationController
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
-                'integratedSystems' => $this->getIntegratedSystems()
+                'integratedSystems' => $this->getIntegratedSystems(),
+                'optionsTemplate' => 'LeanKoalaIntegrationSiteInfoBundle:Default:options.html.twig'
             ]);
     }
 }
