@@ -29,7 +29,8 @@ class DefaultController extends SystemAwareIntegrationController
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
                 'integratedSystems' => $this->getIntegratedSystems(),
-                'optionsTemplate' => 'LeanKoalaIntegrationSiteInfoBundle:Default:options.html.twig'
+                'optionsTemplate' => 'LeanKoalaIntegrationSiteInfoBundle:Default:options.html.twig',
+                'storePath' => $this->generateUrl('leankoala_integration_site_info_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }
 }
