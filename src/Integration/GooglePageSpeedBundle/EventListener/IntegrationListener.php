@@ -9,6 +9,7 @@ use Symfony\Component\DependencyInjection\Container;
 class IntegrationListener
 {
     private $router;
+    private $assetHelper;
 
     public function __construct(Container $container)
     {
@@ -19,6 +20,6 @@ class IntegrationListener
     {
         $integrationContainer = $event->getIntegrationContainer();
         $url = $this->router->generate('leankoala_integration_google_page_speed_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('Google Page Speed', '/images/integrations/pagespeed.png', 'Check the google page speed score.', $url));
+        $integrationContainer->addIntegration(new Integration('Google Page Speed', '/bundles/leankoalaintegrationgooglepagespeed/images/integration.png', 'Check the google page speed score.', $url));
     }
 }
