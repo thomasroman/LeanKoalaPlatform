@@ -9,7 +9,6 @@ use Symfony\Component\DependencyInjection\Container;
 class IntegrationListener
 {
     private $router;
-    private $assetHelper;
 
     public function __construct(Container $container)
     {

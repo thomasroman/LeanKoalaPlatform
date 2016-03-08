@@ -25,6 +25,8 @@ class DefaultController extends ProjectAwareController
             ->getRepository('KoalamonIncidentDashboardBundle:System')
             ->findBy(['project' => $this->getProject(), 'parent' => null], ['name' => 'ASC']);
 
+        $systemCollections = [];
+
         foreach ($systems as $system) {
 
             $subSystems = array();
