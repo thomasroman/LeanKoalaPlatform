@@ -40,7 +40,7 @@ class ConfigController extends SystemAwareIntegrationController
         $projects = [];
 
         foreach ($configs as $config) {
-            if ($this->getActiveSystemsForProject($config->getProject())) {
+            if ($this->getActiveSystemsForProject($config->getProject(), null, true)) {
                 $projects[] = $config->getProject();
             }
         }
@@ -56,7 +56,7 @@ class ConfigController extends SystemAwareIntegrationController
 
     private function getActiveLittleSeoConfig()
     {
-        $littleSeoSystems = $this->getActiveSystemsForProject($this->getProject(), LittleSeoController::INTEGRATION_ID);
+        $littleSeoSystems = $this->getActiveSystemsForProject($this->getProject(), LittleSeoController::INTEGRATION_ID, true);
 
         $rule = ['class' => 'whm\Smoke\Rules\Seo\RobotsDisallowAllRule'];
 
@@ -71,7 +71,7 @@ class ConfigController extends SystemAwareIntegrationController
 
     private function getJsonValidatorConfig()
     {
-        $jsonSystems = $this->getActiveSystemsForProject($this->getProject(), JsonValidatorController::INTEGRATION_ID);
+        $jsonSystems = $this->getActiveSystemsForProject($this->getProject(), JsonValidatorController::INTEGRATION_ID, true);
 
         $rule = ['class' => 'whm\Smoke\Rules\Json\ValidRule'];
 
@@ -89,7 +89,7 @@ class ConfigController extends SystemAwareIntegrationController
      */
     private function getXPathConfig()
     {
-        $xpathSystems = $this->getActiveSystemsForProject($this->getProject(), XPathCheckerController::INTEGRATION_ID);
+        $xpathSystems = $this->getActiveSystemsForProject($this->getProject(), XPathCheckerController::INTEGRATION_ID, true);
 
         $activeSystems = [];
         $rules[] = [];
