@@ -37,7 +37,7 @@ class ConfigController extends SystemAwareIntegrationController
         $projects = [];
 
         foreach ($configs as $config) {
-            if ($this->getActiveSystemsForProject($config->getProject())) {
+            if ($this->getActiveSystemsForProject($config->getProject(), null, true)) {
                 $projects[] = $config->getProject();
             }
         }
@@ -45,7 +45,7 @@ class ConfigController extends SystemAwareIntegrationController
         $projectUrls = [];
 
         foreach ($projects as $project) {
-            $activeSystems = $this->getActiveSystemsForProject($project);
+            $activeSystems = $this->getActiveSystemsForProject($project, null, true);
             foreach ($activeSystems as $activeSystem) {
                 $projectUrls[] = $this->generateUrl('leankoala_integration_smoke_basic_config_project', ['project' => $project->getIdentifier(), 'system' => $activeSystem[0]['system']->getId()], true) . '?api_key=' . $project->getApiKey();
             }
@@ -59,7 +59,7 @@ class ConfigController extends SystemAwareIntegrationController
     {
         $this->assertApiKey($request->get('api_key'));
 
-        $littleSeoActiveSystems = $this->getActiveSystemsForProject($this->getProject());
+        $littleSeoActiveSystems = $this->getActiveSystemsForProject($this->getProject(), null, true);
 
         $filters = array();
         foreach ($littleSeoActiveSystems as $key => $activeSystem) {
