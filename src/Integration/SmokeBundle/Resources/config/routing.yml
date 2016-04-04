@@ -36,3 +36,13 @@ leankoala_integration_smoke_json_homepage:
 leankoala_integration_smoke_json_store:
     path:     /p/{project}/integrations/smoke/json/store
     defaults: { _controller: LeanKoalaIntegrationSmokeBundle:JsonValidator:store }
+
+# Http Head Check
+
+leankoala_integration_smoke_http_head_homepage:
+    path:     /p/{project}/integrations/smoke/httphead/
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:HttpHead:index }
+
+leankoala_integration_smoke_http_head_store:
+    path:     /p/{project}/integrations/smoke/httphead/store
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:HttpHead:store }

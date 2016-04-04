@@ -33,17 +33,10 @@ class ConfigController extends SystemAwareIntegrationController
             return new JsonResponse(['status' => "failure", 'message' => 'Integration key invalid.']);
         }
 
-        $configs = $this->getDoctrine()
-            ->getRepository('KoalamonIntegrationBundle:IntegrationConfig')
-            ->findBy(['integration' => $this->getIntegrationIdentifier()]);
-
-        $projects = [];
-
-        foreach ($configs as $config) {
-            if ($this->getActiveSystemsForProject($config->getProject(), null, true)) {
-                $projects[] = $config->getProject();
-            }
-        }
+        // @todo select only smoke using projects
+        $projects = $this->getDoctrine()
+            ->getRepository('KoalamonIncidentDashboardBundle:Project')
+            ->findAll();
 
         $projectUrls = [];
 
@@ -57,6 +50,8 @@ class ConfigController extends SystemAwareIntegrationController
     private function getActiveLittleSeoConfig()
     {
         $littleSeoSystems = $this->getActiveSystemsForProject($this->getProject(), LittleSeoController::INTEGRATION_ID, true);
+
+        $activeSystems = array();
 
         $rule = ['class' => 'whm\Smoke\Rules\Seo\RobotsDisallowAllRule'];
 
@@ -82,6 +77,31 @@ class ConfigController extends SystemAwareIntegrationController
         }
 
         return ['JsonValidator_Default' => ['systems' => $activeSystems, 'rule' => $rule]];
+    }
+
+    private function getHttpHeadConfig()
+    {
+        $httpHeadSystems = $this->getActiveSystemsForProject($this->getProject(), HttpHeadController::INTEGRATION_ID, true);
+
+        $activeSystems = [];
+        $rules[] = [];
+
+        foreach ($httpHeadSystems as $httpHeadSystem) {
+            $system = $httpHeadSystem[0];
+            $identifier = 'HttpHead_' . $system['system']->getId();
+
+            $checkedHeaders = $system['options']['checkedHeaders'];
+
+            if ($checkedHeaders == null) {
+                continue;
+            }
+
+            $rule = ['class' => 'whm\Smoke\Rules\Http\Header\ExistsRule', 'parameters' => ['checkedHeaders' => $checkedHeaders]];
+
+            $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
+        }
+
+        return $activeSystems;
     }
 
     /**
@@ -132,6 +152,7 @@ class ConfigController extends SystemAwareIntegrationController
         $activeSystems = $this->getActiveLittleSeoConfig();
         $activeSystems = array_merge($activeSystems, $this->getXPathConfig());
         $activeSystems = array_merge($activeSystems, $this->getJsonValidatorConfig());
+        $activeSystems = array_merge($activeSystems, $this->getHttpHeadConfig());
 
         $rules = ['rules' => []];
         foreach ($activeSystems as $key => $activeSystem) {
@@ -141,7 +162,7 @@ class ConfigController extends SystemAwareIntegrationController
         return $this->render('LeanKoalaIntegrationSmokeBundle:Config:smoke.yml.twig',
             [
                 'activeSystems' => $activeSystems,
-                'rules' => Yaml::dump($rules, 5, 2),
+                'rules' => Yaml::dump($rules, 6, 2),
                 'allSystems' => $this->extractSystems($activeSystems)
             ]);
     }
