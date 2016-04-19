@@ -24,15 +24,19 @@ class DefaultController extends SystemAwareIntegrationController
     {
         return self::API_KEY;
     }
-    
+
     public function indexAction()
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
-        return $this->render('LeanKoalaIntegrationKoalaPingBundle:Default:index.html.twig',
+
+        return $this->render('@LeanKoalaIntegrationKoalaPing/Default/index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
-                'integratedSystems' => $this->getIntegratedSystems()
+                'integratedSystems' => $this->getIntegratedSystems(),
+                'optionsTemplate' => 'LeanKoalaIntegrationKoalaPingBundle:Default:options.html.twig',
+                'optionsInTable' => true,
+                'storePath' => $this->generateUrl('leankoala_integration_koala_ping_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }
 }
