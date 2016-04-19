@@ -30,6 +30,7 @@ class DefaultController extends SystemAwareIntegrationController
                 'systems' => $this->getSystems(),
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationJsErrorScannerBundle:Default:options.html.twig',
+                'optionsInTable' => false,
                 'storePath' => $this->generateUrl('leankoala_integration_js_error_scanner_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }
