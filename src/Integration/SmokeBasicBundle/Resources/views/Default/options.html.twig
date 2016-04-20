@@ -1,0 +1,20 @@
+<div class="options">
+
+    <h3>Exclude URLs from standard smoke rules</h3>
+
+    <div class="multi-option" data-option="excludedFiles" data-element="{{ elementName }}">
+
+        <label for="filter" style="width: 60px">Filter</label>
+
+        <select name="filter" id="filter" style="width: 260px; margin-right: 30px" required>
+            <option disabled selected>Choose rule</option>
+            {% for rule in rules %}
+                <option value="{{ rule }}">{{ rule }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="url" style="width: 60px;">Url</label>
+        <input type="text" id="url" name="url" style="width: 400px;" required>
+    </div>
+
+</div>
