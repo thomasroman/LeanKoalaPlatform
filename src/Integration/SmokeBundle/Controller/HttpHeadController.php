@@ -31,6 +31,7 @@ class HttpHeadController extends SystemAwareIntegrationController
                 'systems' => $this->getSystems(),
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationSmokeBundle:HttpHead:options.html.twig',
+                'optionsInTable' => false,
                 'storePath' => $this->generateUrl('leankoala_integration_smoke_http_head_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }

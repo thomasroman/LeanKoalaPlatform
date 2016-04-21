@@ -28,7 +28,9 @@ class XPathCheckerController extends SystemAwareIntegrationController
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
-                'integratedSystems' => $this->getIntegratedSystems()
+                'integratedSystems' => $this->getIntegratedSystems(),
+                'optionsTemplate' => 'LeanKoalaIntegrationSmokeBundle:XPathChecker:options.html.twig',
+                'storePath' => $this->generateUrl('leankoala_integration_smoke_xpath_store', ['project' => $this->getProject()->getIdentifier()]),
             ]);
     }
 }

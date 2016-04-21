@@ -1,22 +1,10 @@
-{#<input type="checkbox" name="{{ elementName }}[seoReobotsTxt]"
-       {% if options.seoReobotsTxt is defined %}checked=checked{% endif %}> Check robots.txt file#}
+<div class="options">
 
-{% set elementNameNormalized = elementName | replace('[', '_') | replace(']', '_') %}
+    <h3>XPath expressions</h3>
 
-<div id="options_{{ elementNameNormalized }}">
-    <span style="font-weight: 400">XPaths</span>
+    <div class="multi-option" data-option="checkedXPaths" data-element="{{ elementName }}">
+        <label for="xpath" style="width:60px;">XPath</label>
+        <input type="text" name="xpath" id="xpath" style="width:380px;" placeholder="XPath" required>
+    </div>
+
 </div>
-
-<div style="clear: both"></div>
-
-<script>
-    {% for xpaths in options %}
-    {% for xpath in xpaths %}
-    addXPathElement('{{ elementNameNormalized }}', '{{ elementName }}', '{{ xpath }}');
-    {% endfor %}
-    {% endfor %}
-</script>
-
-<input id="{{ elementNameNormalized }}_xpath" type="text" placeholder="url" style="width: 300px; margin-right: 20px">
-
-<button style="padding: 3px" onclick="addXPath('{{ elementNameNormalized }}', '{{ elementName }}'); return false;">add</button>

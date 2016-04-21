@@ -10,7 +10,7 @@ use Koalamon\Bundle\IntegrationBundle\Controller\SystemAwareIntegrationControlle
 
 class LittleSeoController extends SystemAwareIntegrationController
 {
-    const INTEGRATION_ID = 'Smoke';
+    const INTEGRATION_ID = 'LittleSeo';
 
     protected function getIntegrationIdentifier()
     {
@@ -29,7 +29,11 @@ class LittleSeoController extends SystemAwareIntegrationController
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
-                'integratedSystems' => $this->getIntegratedSystems()
+                'integratedSystems' => $this->getIntegratedSystems(),
+                'optionsTemplate' => 'LeanKoalaIntegrationSmokeBundle:LittleSeo:options.html.twig',
+                'optionsInTable' => true,
+                'showSubsystems' => false,
+                'storePath' => $this->generateUrl('leankoala_integration_smoke_seo_store', ['project' => $this->getProject()->getIdentifier()]),
             ]);
     }
 }

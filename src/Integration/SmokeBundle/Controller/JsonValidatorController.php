@@ -24,11 +24,14 @@ class JsonValidatorController extends SystemAwareIntegrationController
     public function indexAction()
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
+
         return $this->render('LeanKoalaIntegrationSmokeBundle:JsonValidator:index.html.twig',
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
-                'integratedSystems' => $this->getIntegratedSystems()
+                'integratedSystems' => $this->getIntegratedSystems(),
+                'optionsInTable' => true,
+                'storePath' => $this->generateUrl('leankoala_integration_smoke_json_store', ['project' => $this->getProject()->getIdentifier()]),
             ]);
     }
 }
