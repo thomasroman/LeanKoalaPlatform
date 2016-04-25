@@ -1,12 +1,18 @@
 <div class="options">
 
-    <input type="number" min="0" max="100" required="required" name="{{ elementName }}[pageSize]" {% if options.pageSize is defined %}value="{{ options.pageSize }}"{% endif %}> Page Size in MB<br/>
-    <input type="number" min="0" max="100" required="required" name="{{ elementName }}[fileSize]" {% if options.fileSize is defined %}value="{{ options.fileSize }}"{% endif %}> File Size in KB<br/>
+    <input type="number" min="0" max="100" required="required" id="{{ elementName }}[pageSize]" name="{{ elementName }}[pageSize]" {% if options.pageSize is defined %}value="{{ options.pageSize }}"{% endif %} />
+    <label for="{{ elementName }}[pageSize]" style="width: 150px;">Page Size in MB</label>
+
+    <input type="number" min="0" max="9999" required="required" id="{{ elementName }}[fileSize]" name="{{ elementName }}[fileSize]" {% if options.fileSize is defined %}value="{{ options.fileSize }}"{% endif %} />
+    <label for="{{ elementName }}[fileSize]" style="width: 150px;">File Size in KB</label>
+
+    <br/>
 
     <h3>Excluded files</h3>
 
     <div class="multi-option" data-option="excludedFiles" data-element="{{ elementName }}">
-        <label for="filename">Filename</label><input type="text" id="filename" name="filename">
+        <label for="filename" style="width: 100px;">Filename</label>
+        <input type="text" id="filename" name="filename" style="width: 600px;" required>
     </div>
 
 </div>
