@@ -59,26 +59,29 @@ class ConfigController extends SystemAwareIntegrationController
     {
         $this->assertApiKey($request->get('api_key'));
 
-        $littleSeoActiveSystems = $this->getActiveSystemsForProject($this->getProject(), null, true);
+        $smokeBasicActiveSystems = $this->getActiveSystemsForProject($this->getProject(), null, true);
 
         $filters = array();
-        foreach ($littleSeoActiveSystems as $key => $activeSystem) {
-            if (is_array($activeSystem[0]['options']['filter'])) {
-                foreach ($activeSystem[0]['options']['filter'] as $filter) {
-                    $rule = $filter['rule'];
-                    $url = $filter['url'];
-                    if (!array_key_exists($rule, $filters)) {
-                        $filters[$rule] = array();
+        foreach ($smokeBasicActiveSystems as $key => $activeSystem) {
+
+            if (array_key_exists('system', $activeSystem[0]) && $activeSystem[0]['system'] == $system) {
+                if (array_key_exists('excludedRules', $activeSystem[0]['options']) && is_array($activeSystem[0]['options']['excludedRules'])) {
+                    foreach ($activeSystem[0]['options']['excludedRules'] as $filter) {
+
+                        $rule = $filter['rule'];
+                        $url = $filter['url'];
+                        if (!array_key_exists($rule, $filters)) {
+                            $filters[$rule] = array();
+                        }
+                        $filters[$rule][] = $url;
                     }
-                    $filters[$rule][] = $url;
                 }
             }
         }
 
         return $this->render('LeanKoalaIntegrationSmokeBasicBundle:Config:smoke.yml.twig',
             [
-                'littleSeoActiveSystems' => $littleSeoActiveSystems,
-                'systems' => $systems,
+                'smokeBasicActiveSystems' => $smokeBasicActiveSystems,
                 'filters' => $filters,
                 'system' => $system
             ]);

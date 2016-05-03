@@ -56,8 +56,11 @@ class ConfigController extends SystemAwareIntegrationController
         $rule = ['class' => 'whm\Smoke\Rules\Seo\RobotsDisallowAllRule'];
 
         foreach ($littleSeoSystems as $littleSeoSystem) {
-            if ($littleSeoSystem[0]['options']['seoReobotsTxt'] == "on") {
-                $activeSystems[] = $littleSeoSystem[0]['system'];
+
+            foreach ($littleSeoSystem as $system) {
+                if (array_key_exists('seoRobotsTxt', $system['options']) && $system['options']['seoRobotsTxt'] == "on") {
+                    $activeSystems[] = $system['system'];
+                }
             }
         }
 
@@ -73,7 +76,9 @@ class ConfigController extends SystemAwareIntegrationController
         $activeSystems = [];
 
         foreach ($jsonSystems as $jsonSystem) {
-            $activeSystems[] = $jsonSystem[0]['system'];
+            foreach ($jsonSystem as $system) {
+                $activeSystems[] = $system['system'];
+            }
         }
 
         return ['JsonValidator_Default' => ['systems' => $activeSystems, 'rule' => $rule]];
@@ -81,24 +86,27 @@ class ConfigController extends SystemAwareIntegrationController
 
     private function getHttpHeadConfig()
     {
-        $httpHeadSystems = $this->getActiveSystemsForProject($this->getProject(), HttpHeadController::INTEGRATION_ID, true);
+        $httpHeadMainSystems = $this->getActiveSystemsForProject($this->getProject(), HttpHeadController::INTEGRATION_ID, true);
 
         $activeSystems = [];
         $rules[] = [];
 
-        foreach ($httpHeadSystems as $httpHeadSystem) {
-            $system = $httpHeadSystem[0];
-            $identifier = 'HttpHead_' . $system['system']->getId();
+        foreach ($httpHeadMainSystems as $httpHeadMainSystem) {
 
-            $checkedHeaders = $system['options']['checkedHeaders'];
+            foreach ($httpHeadMainSystem as $system) {
 
-            if ($checkedHeaders == null) {
-                continue;
+                $identifier = 'HttpHead_' . $system['system']->getId();
+
+                $checkedHeaders = $system['options']['checkedHeaders'];
+
+                if ($checkedHeaders == null) {
+                    continue;
+                }
+
+                $rule = ['class' => 'whm\Smoke\Rules\Http\Header\ExistsRule', 'parameters' => ['checkedHeaders' => $checkedHeaders]];
+
+                $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
             }
-
-            $rule = ['class' => 'whm\Smoke\Rules\Http\Header\ExistsRule', 'parameters' => ['checkedHeaders' => $checkedHeaders]];
-
-            $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
         }
 
         return $activeSystems;
@@ -115,19 +123,27 @@ class ConfigController extends SystemAwareIntegrationController
         $rules[] = [];
 
         foreach ($xpathSystems as $xpathSystem) {
-            $system = $xpathSystem[0];
-            $identifier = 'XPathChecker_' . $system['system']->getId();
 
-            $xpaths = $system['options']['xpaths'];
+            foreach ($xpathSystem as $system) {
 
-            if (is_null($xpaths)) {
-                $xpathRules = [];
-            } else {
-                $xpathRules = array_values($xpaths);
+                var_dump(($system['options']));
+
+                $identifier = 'XPathChecker_' . $system['system']->getId();
+
+                $xpaths = [];
+                foreach ($system['options']['checkedXPaths'] as $xpathOption) {
+                    $xpaths[] = $xpathOption['xpath'];
+                }
+
+                if (is_null($xpaths)) {
+                    $xpathRules = [];
+                } else {
+                    $xpathRules = array_values($xpaths);
+                }
+                $rule = ['class' => 'whm\Smoke\Rules\Html\XPathExistsRule', 'parameters' => ['xPaths' => $xpathRules]];
+
+                $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
             }
-            $rule = ['class' => 'whm\Smoke\Rules\Html\XPathExistsRule', 'parameters' => ['xPaths' => $xpathRules]];
-
-            $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
         }
 
         return $activeSystems;

@@ -1,10 +1,14 @@
 <div class="options">
 
-    <input type="number" min="0" max="100" required="required" id="{{ elementName }}[pageSize]" name="{{ elementName }}[pageSize]" {% if options.pageSize is defined %}value="{{ options.pageSize }}"{% endif %} />
-    <label for="{{ elementName }}[pageSize]" style="width: 150px;">Page Size in MB</label>
+    <div class="single-option">
+        <input type="number" min="0" max="100" required="required" id="{{ elementName }}[pageSize]" name="{{ elementName }}[pageSize]"
+               {% if options.pageSize is defined %}value="{{ options.pageSize }}"{% endif %} />
+        <label for="{{ elementName }}[pageSize]" style="width: 150px;">Page Size in MB</label>
 
-    <input type="number" min="0" max="9999" required="required" id="{{ elementName }}[fileSize]" name="{{ elementName }}[fileSize]" {% if options.fileSize is defined %}value="{{ options.fileSize }}"{% endif %} />
-    <label for="{{ elementName }}[fileSize]" style="width: 150px;">File Size in KB</label>
+        <input type="number" min="0" max="9999" required="required" id="{{ elementName }}[fileSize]" name="{{ elementName }}[fileSize]"
+               {% if options.fileSize is defined %}value="{{ options.fileSize }}"{% endif %} />
+        <label for="{{ elementName }}[fileSize]" style="width: 150px;">File Size in KB</label>
+    </div>
 
     <br/>
 

@@ -60,6 +60,7 @@ class DefaultController extends SystemAwareIntegrationController
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationSmokeBasicBundle:Default:options.html.twig',
                 'optionsInTable' => false,
+                'showSubsystems' => false,
                 'storePath' => $this->generateUrl('leankoala_integration_smoke_basic_store', ['project' => $this->getProject()->getIdentifier()]),
                 'rules' => $this->rules
             ]);

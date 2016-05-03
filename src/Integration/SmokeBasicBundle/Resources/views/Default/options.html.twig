@@ -1,12 +1,12 @@
 <div class="options">
 
-    <h3>Exclude URLs from standard smoke rules</h3>
+    <h3>Exclude URLs from standard Smoke Rules</h3>
 
-    <div class="multi-option" data-option="excludedFiles" data-element="{{ elementName }}">
+    <div class="multi-option" data-option="excludedRules" data-element="{{ elementName }}">
 
-        <label for="filter" style="width: 60px">Filter</label>
+        <label for="rule" style="width: 60px">Filter</label>
 
-        <select name="filter" id="filter" style="width: 260px; margin-right: 30px" required>
+        <select name="rule" id="rule" style="width: 260px; margin-right: 30px" required>
             <option disabled selected>Choose rule</option>
             {% for rule in rules %}
                 <option value="{{ rule }}">{{ rule }}</option>
