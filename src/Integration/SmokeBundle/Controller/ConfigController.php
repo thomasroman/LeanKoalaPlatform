@@ -125,9 +125,6 @@ class ConfigController extends SystemAwareIntegrationController
         foreach ($xpathSystems as $xpathSystem) {
 
             foreach ($xpathSystem as $system) {
-
-                var_dump(($system['options']));
-
                 $identifier = 'XPathChecker_' . $system['system']->getId();
 
                 $xpaths = [];
