@@ -1,0 +1,31 @@
+menu:
+
+  koalamon_project_admin:
+
+    systems_sub_default:
+      disabled: true
+
+    tools_main:
+      disabled: true
+
+    tools_sub_default:
+      disabled: true
+
+    tools_sub_threshold:
+      disabled: true
+
+    translation_main:
+      disabled: true
+
+    integration_main:
+      disabled: true
+
+
+  koalamon_project_menu_admin:
+
+    integration_main_menu:
+      label: Integrations
+      options:
+        route: koalamon_integration_home
+        routeParameters:
+          project: @route
