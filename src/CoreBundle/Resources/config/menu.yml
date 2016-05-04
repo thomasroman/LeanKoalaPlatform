@@ -20,6 +20,12 @@ menu:
     integration_main:
       disabled: true
 
+    systems_sub_default:
+      disabled: true
+
+    systems_sub_health_status:
+      disabled: true
+
 
   koalamon_project_menu_admin:
 
