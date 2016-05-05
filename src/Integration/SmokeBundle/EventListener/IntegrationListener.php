@@ -29,6 +29,6 @@ class IntegrationListener
         $integrationContainer->addIntegration(new Integration('Json Validator', '/images/integrations/json.png', 'Checking if given Systems return valid json', $url));
 
         $url = $this->router->generate('leankoala_integration_smoke_http_head_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('Http Header Check', '', 'Checking if a given http header exists', $url));
+        $integrationContainer->addIntegration(new Integration('Http Header Check', '/bundles/leankoalaintegrationsmoke/images/head.png', 'Checking if a given http header exists', $url));
     }
 }
