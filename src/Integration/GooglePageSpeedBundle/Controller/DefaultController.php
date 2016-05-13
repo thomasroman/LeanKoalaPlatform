@@ -31,6 +31,7 @@ class DefaultController extends SystemAwareIntegrationController
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationGooglePageSpeedBundle:Default:options.html.twig',
                 'optionsInTable' => true,
+                'showSubsystems' => false,
                 'storePath' => $this->generateUrl('leankoala_integration_google_page_speed_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }
