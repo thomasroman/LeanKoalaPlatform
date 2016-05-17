@@ -146,6 +146,41 @@ class ConfigController extends SystemAwareIntegrationController
         return $activeSystems;
     }
 
+    /**
+     * @return array
+     */
+    private function getRegExExistsConfig()
+    {
+        $systems = $this->getActiveSystemsForProject($this->getProject(), RegExExistsController::INTEGRATION_ID, true);
+
+        $activeSystems = [];
+        $rules[] = [];
+
+        foreach ($systems as $regExSystem) {
+
+            foreach ($regExSystem as $system) {
+                $identifier = 'RegExExists_' . $system['system']->getId();
+
+                $regExs = [];
+
+                foreach ($system['options']['regex'] as $regExOptions) {
+                    $regExs[] = $regExOptions['regex'];
+                }
+
+                if (is_null($regExs)) {
+                    $regExRules = [];
+                } else {
+                    $regExRules = array_values($regExs);
+                }
+                $rule = ['class' => 'whm\Smoke\Rules\Html\RegExExistsRule', 'parameters' => ['regExs' => $regExRules]];
+
+                $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
+            }
+        }
+
+        return $activeSystems;
+    }
+
     private function extractSystems($activeSystems)
     {
         $allSystems = [];
@@ -166,6 +201,7 @@ class ConfigController extends SystemAwareIntegrationController
         $activeSystems = array_merge($activeSystems, $this->getXPathConfig());
         $activeSystems = array_merge($activeSystems, $this->getJsonValidatorConfig());
         $activeSystems = array_merge($activeSystems, $this->getHttpHeadConfig());
+        $activeSystems = array_merge($activeSystems, $this->getRegExExistsConfig());
 
         $rules = ['rules' => []];
         foreach ($activeSystems as $key => $activeSystem) {

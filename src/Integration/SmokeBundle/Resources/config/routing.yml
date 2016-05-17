@@ -6,6 +6,16 @@ leankoala_integration_smoke_config:
     path:     /p/integrations/smoke/config/
     defaults: { _controller: LeanKoalaIntegrationSmokeBundle:Config:index }
 
+# RegExExists
+
+leankoala_integration_smoke_reg_ex_exists_homepage:
+    path:     /p/{project}/integrations/smoke/regex/
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:RegExExists:index }
+
+leankoala_integration_smoke_reg_ex_exists_store:
+    path:     /p/{project}/integrations/smoke/regex/store
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:RegExExists:store }
+
 # LittleSEO
 
 leankoala_integration_smoke_seo_homepage:
