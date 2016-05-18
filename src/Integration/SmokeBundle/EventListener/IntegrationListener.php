@@ -32,6 +32,6 @@ class IntegrationListener
         $integrationContainer->addIntegration(new Integration('Http Header Check', '/bundles/leankoalaintegrationsmoke/images/head.png', 'Checking if a given http header exists', $url));
 
         $url = $this->router->generate('leankoala_integration_smoke_reg_ex_exists_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('RegEx Exists', '', 'Checks if a given regular exprrssion exists', $url));
+        $integrationContainer->addIntegration(new Integration('RegEx Exists', '/bundles/leankoalaintegrationsmoke/images/regex.png', 'Checks if a given regular exprrssion exists', $url));
     }
 }
