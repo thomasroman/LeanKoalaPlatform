@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block integration_description %}
-    Check if an XPath exists. {# @TODO: describe xpath checker #}
+    {% content "integration-smoke-regex-info" %}
+    Check if an XPath exists.
+    {% endcontent %}
 {% endblock %}

@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block integration_description %}
-    {# @TODO: add a cool description for SiteInfo #}
+    {% content "integration-site-info-info" %}
     Checks for acceptable file and page size.
+    {% endcontent %}
 {% endblock %}

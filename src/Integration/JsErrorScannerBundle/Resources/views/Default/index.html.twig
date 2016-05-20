@@ -6,6 +6,8 @@
 
 {% block integration_description %}
     <div class="infobox">
+        {% content "integration-js-error-scanner-info" %}
         The JsErrorScanner checks the given systems for JavaScript errors. For the check it uses a PhantomJS browser. A headless webkit.
+        {% endcontent %}
     </div>
 {% endblock %}
