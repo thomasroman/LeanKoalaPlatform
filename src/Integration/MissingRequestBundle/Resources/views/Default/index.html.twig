@@ -2,126 +2,117 @@
 
 {% block integration %}
 
-    <style>
+    <h1>Missing Request</h1>
 
-        #integration table tr td {
-            padding-right: 40px;
-        }
+    <div class="infobox big">
+        MissingRequest helps you to check your systems for missing requests. If you know that an url has for example a google analytics integration you can
+        assert that the google analytics javascript file was fetched and a request was created that sends the google collect data.
+    </div>
 
-        #integration table tr td {
-            padding: 10px;
-            vertical-align: top;
-        }
+    <div id="admin-content">
+        <div class="box-element first">
+            <div class="box-element-header">Request Collections</div>
+            <div class="box-element-content">
+                <div class="options-element">
+                    <div class="option">
+                        <table style="margin-bottom: 50px;">
+                            <thead>
+                            <tr>
+                                <td style="width: 450px; border-bottom: 30px solid transparent">Name</td>
+                                <td style="width: 100px; border-bottom: 30px solid transparent">Options</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for collection in collections %}
+                                <tr>
+                                    <td>
+                                        <div style="font-weight: bold">{{ collection.name }}</div>
 
-        #integration table thead tr td {
-            background-color: #eaeaea;
-        }
-
-        #integration ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-    </style>
-
-    <h1>MissingRequest</h1>
-
-    <div id="integration" style="width: 780px;">
-        <div class="about" style="padding-top: 20px">
-            MissingRequest helps you to check your systems for missing requests. If you know that an url has for example a google analytics integration you can
-            assert that the google analytics javascript file was fetched and a request was created that sends the google collect data.
-        </div>
-
-        <h2>Request Collections</h2>
-
-        <p>
-            In most cases most of your systems and subsystems have to been checked against the same pattern. To make configuration easier we use request collections
-            that group urls. For example a "Google Analytics Collection" would contain two elements: the loading of the javascript file and the collect data request.
-        </p>
-
-        <table>
-            <thead>
-            <tr>
-                <td style="min-width: 300px">Name</td>
-                <td style="min-width: 300px">Urls / Pattern</td>
-                <td style="width: 100px">Options</td>
-            </tr>
-            </thead>
-
-            {% for collection in collections %}
-                <tr>
-                    <td>
-                        {{ collection.name }}
-                    </td>
-                    <td>
-                        <ul>
-                            {% for request in collection.requests %}
-                                <li>{{ request.pattern }}</li>
+                                        <ul style="margin-left: 20px; padding-left: 0">
+                                            {% for request in collection.requests %}
+                                                <li>{{ request.pattern }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a class="confirm" data-message="Are you sure you want to delete '{{ collection.name }}'?"
+                                           href="{{ path('leankoala_integration_missing_request_collection_delete',  {'project': project.identifier, 'collection': collection.id }) }}">delete</a> |
+                                        <a href="{{ path('leankoala_integration_missing_request_collection_edit',  {'project': project.identifier, 'collection': collection.id }) }}">edit</a>
+                                    </td>
+                                </tr>
                             {% endfor %}
-                        </ul>
-                    </td>
-                    <td>
-                        <a class="confirm" data-message="Are you sure you want to delete '{{ collection.name }}'?" href="{{ path('leankoala_integration_missing_request_collection_delete',  {'project': project.identifier, 'collection': collection.id }) }}">delete</a> |
-                        <a href="{{ path('leankoala_integration_missing_request_collection_edit',  {'project': project.identifier, 'collection': collection.id }) }}">edit</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-        <div class="button" style="width: 130px; text-align: center">
-            <a href="{{ path('leankoala_integration_missing_request_collection_new', {'project': project.identifier }) }}">
-                Create new Collection
-            </a>
-        </div>
+                            </tbody>
+                        </table>
+                        <div class="button-standard">
+                            <a href="{{ path('leankoala_integration_missing_request_collection_new', {'project': project.identifier }) }}">
+                                Create new Collection
+                            </a>
+                        </div>
 
-        <h2>Systems</h2>
+                    </div>
+                    <div class="help">
+                        In most cases most of your systems and subsystems have to been checked against the same pattern. To make configuration easier we use request collections
+                        that group urls. For example a "Google Analytics Collection" would contain two elements: the loading of the javascript file and the collect data request.
+                    </div>
+                </div>
+            </div>
 
+            <div style="clear: both"></div>
 
-        <p>
-            After creating the request collections they can be assigned to any registred system. We recomment to create a subsystem for every special page type you have.
-        </p>
-
-        <table>
-            <thead>
-            <tr>
-                <td style="min-width: 300px">System</td>
-                <td style="min-width: 300px">Collections</td>
-                <td style="width: 100px">Options</td>
-            </tr>
-            </thead>
-            {% for systemCollection in systemCollections %}
-                <tr>
-                    <td style="font-weight: 400">
-                        {{ systemCollection.system.name }}
-                    </td>
-                    <td>
-                        <ul>
-                            {% for collection in systemCollection.collections %}
-                                <li>{{ collection.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td>
-                        <a href="{{ path('leankoala_integration_missing_request_system_edit', {'system': systemCollection.system.id, 'project': project.identifier}) }}">edit</a>
-                    </td>
-                </tr>
-                {% for subsystemCollections in systemCollection.subsystems %}
-                    <tr>
-                        <td>
-                            <span style="padding-left: 20px">{{ subsystemCollections.system.name }}</span>
-                        </td>
-                        <td>
-                            <ul>
-                                {% for collection in subsystemCollections.collections %}
-                                    <li>{{ collection.name }}</li>
+            <div class="box-element-header" style="margin-top: 50px">Systems</div>
+            <div class="box-element-content">
+                <div class="options-element">
+                    <div class="option">
+                        <table>
+                            <thead>
+                            <tr style="border-bottom: 30px solid transparent">
+                                <td style="width: 200px;">System</td>
+                                <td style="width: 200px">Collections</td>
+                                <td style="width: 100px">Options</td>
+                            </tr>
+                            </thead>
+                            {% for systemCollection in systemCollections %}
+                                <tr style="border-bottom: 10px solid transparent">
+                                    <td style="font-weight: bold">
+                                        {{ systemCollection.system.name }}
+                                    </td>
+                                    <td>
+                                        <ul style="padding-left: 0;margin-left: 20px">
+                                            {% for collection in systemCollection.collections %}
+                                                <li>{{ collection.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('leankoala_integration_missing_request_system_edit', {'system': systemCollection.system.id, 'project': project.identifier}) }}">edit</a>
+                                    </td>
+                                </tr>
+                                {% for subsystemCollections in systemCollection.subsystems %}
+                                    <tr style="border-bottom: 10px solid transparent">
+                                        <td>
+                                            <span style="padding-left: 20px">{{ subsystemCollections.system.name }}</span>
+                                        </td>
+                                        <td>
+                                            <ul style="padding-left: 0;margin-left: 20px">
+                                                {% for collection in subsystemCollections.collections %}
+                                                    <li>{{ collection.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('leankoala_integration_missing_request_system_edit', {'system': subsystemCollections.system.id, 'project': project.identifier}) }}">edit</a>
+                                        </td>
+                                    </tr>
                                 {% endfor %}
-                            </ul>
-                        </td>
-                        <td>
-                            <a href="{{ path('leankoala_integration_missing_request_system_edit', {'system': subsystemCollections.system.id, 'project': project.identifier}) }}">edit</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            {% endfor %}
-        </table>
+                            {% endfor %}
+                        </table>
+
+                    </div>
+                    <div class="help">
+                        After creating the request collections they can be assigned to any registred system. We recomment to create a subsystem for every special page type you have.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
