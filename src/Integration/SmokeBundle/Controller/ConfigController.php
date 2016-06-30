@@ -67,6 +67,26 @@ class ConfigController extends SystemAwareIntegrationController
         return ['LittleSeo_Robots' => ['systems' => $activeSystems, 'rule' => $rule]];
     }
 
+    private function getHttpsCertConfig()
+    {
+        $httpsCertSystems = $this->getActiveSystemsForProject($this->getProject(), HttpsCertController::INTEGRATION_ID, true);
+
+        $activeSystems = array();
+
+        foreach ($httpsCertSystems as $httpsCertSystem) {
+
+            foreach ($httpsCertSystem as $system) {
+                if (array_key_exists('expireWarningTime', $system['options'])) {
+                    $rule = ['class' => 'whm\Smoke\Rules\Http\HttpsCertificateExpireRule', 'parameters' => ['expireWarningTime' => (int)$system['options']['expireWarningTime']]];
+                    $identifier = 'HttpCert_' . $system['system']->getId();
+                    $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
+                }
+            }
+        }
+
+        return $activeSystems;
+    }
+
     private function getJsonValidatorConfig()
     {
         $jsonSystems = $this->getActiveSystemsForProject($this->getProject(), JsonValidatorController::INTEGRATION_ID, true);
@@ -202,6 +222,7 @@ class ConfigController extends SystemAwareIntegrationController
         $activeSystems = array_merge($activeSystems, $this->getJsonValidatorConfig());
         $activeSystems = array_merge($activeSystems, $this->getHttpHeadConfig());
         $activeSystems = array_merge($activeSystems, $this->getRegExExistsConfig());
+        $activeSystems = array_merge($activeSystems, $this->getHttpsCertConfig());
 
         $rules = ['rules' => []];
         foreach ($activeSystems as $key => $activeSystem) {

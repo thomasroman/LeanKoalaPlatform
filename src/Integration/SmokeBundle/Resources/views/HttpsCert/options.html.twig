@@ -1,0 +1,3 @@
+<label for="{{ elementName }}-expireWarningTime">Expiration time in days</label>
+<input type="number" name="{{ elementName }}[expireWarningTime]" value="{% if options.expireWarningTime is defined %}{{ options.expireWarningTime }}{% endif %}"
+       id="{{ elementName }}-expireWarningTime">

@@ -1,0 +1,11 @@
+{% extends '@KoalamonIntegration/Master/inheritanceaware.html.twig' %}
+
+{% block integration_name %}
+    Https Cert
+{% endblock %}
+
+{% block integration_description %}
+    {% content "integration-smoke-https-cert-info" %}
+    Checks if the https cert of a given site is valid.
+    {% endcontent %}
+{% endblock %}

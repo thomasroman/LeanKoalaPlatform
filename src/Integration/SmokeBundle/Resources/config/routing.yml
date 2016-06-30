@@ -56,3 +56,13 @@ leankoala_integration_smoke_http_head_homepage:
 leankoala_integration_smoke_http_head_store:
     path:     /p/{project}/integrations/smoke/httphead/store
     defaults: { _controller: LeanKoalaIntegrationSmokeBundle:HttpHead:store }
+
+# Https Cert Check
+
+leankoala_integration_smoke_https_cert_homepage:
+    path:     /p/{project}/integrations/smoke/httpscert/
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:HttpsCert:index}
+
+leankoala_integration_smoke_https_cert_store:
+    path:     /p/{project}/integrations/smoke/httpscert/store
+    defaults: { _controller: LeanKoalaIntegrationSmokeBundle:HttpsCert:store }
