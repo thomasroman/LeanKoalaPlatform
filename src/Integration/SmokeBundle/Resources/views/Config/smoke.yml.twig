@@ -32,7 +32,7 @@ reporter:
      parameters:
        systemUseRetriever: true
        apiKey: {{ project.apiKey }}
-       server: {{ url('koalamon_default_homepage') | trim('/') }}
+       server: {{ url('koalamon_default_homepage') | trim('/') }}/webhook/
        collect: false
        groupBy: prefix
 

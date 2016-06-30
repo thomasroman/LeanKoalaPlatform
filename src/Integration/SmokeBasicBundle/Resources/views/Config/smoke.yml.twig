@@ -38,7 +38,7 @@ reporter:
        identifier: smoke_{{ system.identifier }}_crawler
        system: {{ system.identifier }}
        apiKey: {{ project.apiKey }}
-       server: {{ url('koalamon_default_homepage') | trim('/') }}
+       server: {{ url('koalamon_default_homepage') | trim('/') }}/webhook/
        tool: SmokeBasic
        collect: true
 
