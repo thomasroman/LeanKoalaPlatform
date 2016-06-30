@@ -20,13 +20,13 @@ class IntegrationListener
         $integrationContainer = $event->getIntegrationContainer();
 
         $url = $this->router->generate('leankoala_integration_smoke_seo_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('LittleSEO', '/images/integrations/littleseo.png', 'Checking some search engine rules', $url));
+        $integrationContainer->addIntegration(new Integration('LittleSEO', '/bundles/leankoalaintegrationsmoke/images/littleseo.png', 'Checking some search engine rules', $url));
 
         $url = $this->router->generate('leankoala_integration_smoke_xpath_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('XPath Checker', '/images/integrations/xpath.png', 'Checking if given XPaths do exist.', $url));
+        $integrationContainer->addIntegration(new Integration('XPath Checker', '/bundles/leankoalaintegrationsmoke/images/xpath.png', 'Checking if given XPaths do exist.', $url));
 
         $url = $this->router->generate('leankoala_integration_smoke_json_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('Json Validator', '/images/integrations/json.png', 'Checking if given Systems return valid json', $url));
+        $integrationContainer->addIntegration(new Integration('Json Validator', '/bundles/leankoalaintegrationsmoke/images/json.png', 'Checking if given Systems return valid json', $url));
 
         $url = $this->router->generate('leankoala_integration_smoke_http_head_homepage', ['project' => $event->getProject()->getIdentifier()]);
         $integrationContainer->addIntegration(new Integration('Http Header Check', '/bundles/leankoalaintegrationsmoke/images/head.png', 'Checking if a given http header exists', $url));
@@ -35,6 +35,6 @@ class IntegrationListener
         $integrationContainer->addIntegration(new Integration('RegEx Exists', '/bundles/leankoalaintegrationsmoke/images/regex.png', 'Checks if a given regular exprrssion exists', $url));
 
         $url = $this->router->generate('leankoala_integration_smoke_https_cert_homepage', ['project' => $event->getProject()->getIdentifier()]);
-        $integrationContainer->addIntegration(new Integration('Https Certificate Checker', '', 'Checks if the https certificate is valid', $url));
+        $integrationContainer->addIntegration(new Integration('Https Certificate Checker', '/bundles/leankoalaintegrationsmoke/images/httpscert.png', 'Checks if the https certificate is valid', $url));
     }
 }
