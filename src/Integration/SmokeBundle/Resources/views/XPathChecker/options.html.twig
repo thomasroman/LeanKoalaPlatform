@@ -3,8 +3,18 @@
     <h3>XPath expressions</h3>
 
     <div class="multi-option" data-option="checkedXPaths" data-element="{{ elementName }}">
-        <label for="xpath" style="width:60px;">XPath</label>
-        <input type="text" name="xpath" id="xpath" style="width:380px;" placeholder="XPath" required>
+        <label for="xpath_pattern" style="width:60px;">XPath</label>
+        <input type="text" name="pattern" id="xpath_pattern" style="width:380px;" placeholder="XPath" required>
+
+        <label for="xpath_relation" style="width: 0px"></label>
+        <select name="relation" id="xpath_relation" width="100px" style="margin-right: 10px">
+            <option value="equals">equals</option>
+            <option value="greater than">greater than</option>
+            <option value="less than">less than</option>
+        </select>
+
+        <label for="xpath_value" style="width:60px;">Value</label>
+        <input type="number" name="value" id="xpath_value" style="width:50px;" placeholder="XPath" required value="1">
     </div>
 
 </div>

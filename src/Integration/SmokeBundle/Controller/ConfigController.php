@@ -149,7 +149,7 @@ class ConfigController extends SystemAwareIntegrationController
 
                 $xpaths = [];
                 foreach ($system['options']['checkedXPaths'] as $xpathOption) {
-                    $xpaths[] = $xpathOption['xpath'];
+                    $xpaths[] = $xpathOption;
                 }
 
                 if (is_null($xpaths)) {
