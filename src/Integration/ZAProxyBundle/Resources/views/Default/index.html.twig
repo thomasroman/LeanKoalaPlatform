@@ -1,1 +1,13 @@
-Hello!
+{% extends '@KoalamonIntegration/Master/inheritanceaware.html.twig' %}
+
+{% block integration_name %}
+    ZAProxy Security Scanner
+{% endblock %}
+
+{% block integration_description %}
+    <div class="infobox">
+        {% content "integration-zaproxy-info" %}
+        The OWASP ZAProxy Scanner check for known security vulnerabilities on your website.
+        {% endcontent %}
+    </div>
+{% endblock %}

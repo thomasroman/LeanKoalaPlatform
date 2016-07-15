@@ -1,3 +1,7 @@
+leankoala_integration_zaproxy:
+    resource: "@LeanKoalaIntegrationZAProxyBundle/Resources/config/routing.yml"
+    prefix:   /
+
 leankoala_integration_js_error_scanner:
     resource: "@LeanKoalaIntegrationJsErrorScannerBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,3 +1,7 @@
 leankoala_integration_zaproxy_homepage:
     path:     /p/{project}/admin/integrations/security/
     defaults: { _controller: LeanKoalaIntegrationZAProxyBundle:Default:index }
+
+leankoala_integration_zaproxy_store:
+    path:     /p/{project}/integrations/zaproxy/store/
+    defaults: { _controller: LeanKoalaIntegrationZAProxyBundle:Default:store }
