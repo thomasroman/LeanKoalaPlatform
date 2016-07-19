@@ -2,8 +2,8 @@
 
 namespace LeanKoala\Integration\MissingRequestBundle\Entity;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\Project;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\System;
+use Koalamon\IncidentDashboardBundle\Entity\Project;
+use Koalamon\IncidentDashboardBundle\Entity\System;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,7 +31,7 @@ class Collection implements \JsonSerializable
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Koalamon\Bundle\IncidentDashboardBundle\Entity\Project", inversedBy="missingRequestGroups")
+     * @ORM\ManyToOne(targetEntity="Koalamon\IncidentDashboardBundle\Entity\Project", inversedBy="missingRequestGroups")
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      **/
     private $project;
@@ -46,7 +46,7 @@ class Collection implements \JsonSerializable
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Koalamon\Bundle\IncidentDashboardBundle\Entity\System")
+     * @ORM\ManyToMany(targetEntity="Koalamon\IncidentDashboardBundle\Entity\System")
      * @ORM\JoinTable(name="collections_systems",
      *      joinColumns={@ORM\JoinColumn(name="collection_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="system_id", referencedColumnName="id")}

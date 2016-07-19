@@ -2,8 +2,8 @@
 
 namespace LeanKoala\Integration\MissingRequestBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Controller\ProjectAwareController;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\UserRole;
+use Koalamon\IncidentDashboardBundle\Controller\ProjectAwareController;
+use Koalamon\IncidentDashboardBundle\Entity\UserRole;
 use LeanKoala\Integration\MissingRequestBundle\Entity\Collection;
 use LeanKoala\Integration\MissingRequestBundle\Entity\Request;
 use Symfony\Component\HttpKernel\Tests\Controller;

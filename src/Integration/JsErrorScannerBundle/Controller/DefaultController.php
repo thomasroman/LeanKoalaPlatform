@@ -2,8 +2,8 @@
 
 namespace LeanKoala\Integration\JsErrorScannerBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\UserRole;
-use Koalamon\Bundle\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IncidentDashboardBundle\Entity\UserRole;
+use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
 
 class DefaultController extends SystemAwareIntegrationController
 {

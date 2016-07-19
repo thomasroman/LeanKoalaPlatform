@@ -2,7 +2,7 @@
 
 namespace LeanKoala\Integration\MissingRequestBundle\Entity;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\System;
+use Koalamon\IncidentDashboardBundle\Entity\System;
 use Doctrine\ORM\EntityRepository;
 
 class CollectionRepository extends EntityRepository

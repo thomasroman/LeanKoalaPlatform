@@ -1,11 +1,11 @@
 <?php
 
 namespace LeanKoala\Integration\KoalaPingBundle\Controller;
-use Koalamon\Bundle\IncidentDashboardBundle\Controller\ProjectAwareController;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\UserRole;
+use Koalamon\IncidentDashboardBundle\Controller\ProjectAwareController;
+use Koalamon\IncidentDashboardBundle\Entity\UserRole;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingConfig;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingSystem;
-use Koalamon\Bundle\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

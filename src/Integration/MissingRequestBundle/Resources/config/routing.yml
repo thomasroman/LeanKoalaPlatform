@@ -1,31 +1,31 @@
 leankoala_integration_missing_request_homepage:
-    path:     /p/{project}/integration/missingrequest/
+    path:     /p/{project}/integrations/missingrequest/
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:Default:index }
 
 leankoala_integration_missing_request_collection_new:
-    path:     /p/{project}/integration/missingrequest/collection/new
+    path:     /p/{project}/integrations/missingrequest/collection/new
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:Collection:new }
 
 leankoala_integration_missing_request_collection_edit:
-    path:     /p/{project}/integration/missingrequest/collection/edit/{collection}/
+    path:     /p/{project}/integrations/missingrequest/collection/edit/{collection}/
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:Collection:edit }
 
 leankoala_integration_missing_request_collection_store:
-    path:     /p/{project}/integration/missingrequest/collection/store
+    path:     /p/{project}/integrations/missingrequest/collection/store
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:Collection:store }
 
 leankoala_integration_missing_request_collection_delete:
-    path:     /p/{project}/integration/missingrequest/collection/delete/{collection}/
+    path:     /p/{project}/integrations/missingrequest/collection/delete/{collection}/
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:Collection:delete }
 
 leankoala_integration_missing_request_system_edit:
-    path:     /p/{project}/integration/missingrequest/system/edit/{system}/
+    path:     /p/{project}/integrations/missingrequest/system/edit/{system}/
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:System:edit }
 
 leankoala_integration_missing_request_system_store:
-    path:     /p/{project}/integration/missingrequest/system/store/{system}/
+    path:     /p/{project}/integrations/missingrequest/system/store/{system}/
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:System:store }
 
 leankoala_integration_missing_request_system_rest:
-    path:     /p/integration/missingrequest/rest/config
+    path:     /p/integrations/missingrequest/rest/config
     defaults: { _controller: LeanKoalaIntegrationMissingRequestBundle:Rest:getConfig }
