@@ -2,8 +2,8 @@
 
 namespace LeanKoala\Integration\MissingRequestBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Controller\ProjectAwareController;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\System;
+use Koalamon\IncidentDashboardBundle\Controller\ProjectAwareController;
+use Koalamon\IncidentDashboardBundle\Entity\System;
 
 class DefaultController extends ProjectAwareController
 {

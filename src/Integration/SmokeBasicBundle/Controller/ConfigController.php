@@ -2,12 +2,12 @@
 
 namespace LeanKoala\Integration\SmokeBasicBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\System;
+use Koalamon\IncidentDashboardBundle\Entity\System;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingConfig;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingSystem;
 use LeanKoala\Integration\SmokeBundle\Controller\LittleSeoController;
-use Koalamon\Bundle\IntegrationBundle\Controller\SystemAwareIntegrationController;
-use Koalamon\Bundle\IntegrationBundle\Entity\IntegrationConfig;
+use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IntegrationBundle\Entity\IntegrationConfig;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

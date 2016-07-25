@@ -4,8 +4,8 @@ namespace LeanKoala\Integration\SmokeBundle\Controller;
 
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingConfig;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingSystem;
-use Koalamon\Bundle\IntegrationBundle\Controller\SystemAwareIntegrationController;
-use Koalamon\Bundle\IntegrationBundle\Entity\IntegrationConfig;
+use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IntegrationBundle\Entity\IntegrationConfig;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
@@ -148,8 +148,11 @@ class ConfigController extends SystemAwareIntegrationController
                 $identifier = 'XPathChecker_' . $system['system']->getId();
 
                 $xpaths = [];
-                foreach ($system['options']['checkedXPaths'] as $xpathOption) {
-                    $xpaths[] = $xpathOption;
+
+                if ($system['options'] != []) {
+                    foreach ($system['options']['checkedXPaths'] as $xpathOption) {
+                        $xpaths[] = $xpathOption;
+                    }
                 }
 
                 if (is_null($xpaths)) {

@@ -2,8 +2,9 @@
 
 namespace LeanKoala\Integration\GooglePageSpeedBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\UserRole;
-use Koalamon\Bundle\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IncidentDashboardBundle\Entity\UserRole;
+use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends SystemAwareIntegrationController
 {
@@ -35,4 +36,11 @@ class DefaultController extends SystemAwareIntegrationController
                 'storePath' => $this->generateUrl('leankoala_integration_google_page_speed_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }
+
+    public function restGetSystemsAction(Request $request, $returnMainSystems = false)
+    {
+        return parent::restGetSystemsAction($request, true);
+    }
+
+
 }
