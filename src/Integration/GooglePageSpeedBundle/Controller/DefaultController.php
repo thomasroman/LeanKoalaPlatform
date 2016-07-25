@@ -4,6 +4,7 @@ namespace LeanKoala\Integration\GooglePageSpeedBundle\Controller;
 
 use Koalamon\IncidentDashboardBundle\Entity\UserRole;
 use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
+
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends SystemAwareIntegrationController
