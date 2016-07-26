@@ -42,6 +42,4 @@ class DefaultController extends SystemAwareIntegrationController
     {
         return parent::restGetSystemsAction($request, true);
     }
-
-
 }

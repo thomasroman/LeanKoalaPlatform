@@ -35,3 +35,5 @@ menu:
         route: koalamon_integration_home
         routeParameters:
           project: @route
+        attributes:
+          class: importance-medium
