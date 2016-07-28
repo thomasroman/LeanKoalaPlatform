@@ -1,2 +1,26 @@
-<input type="checkbox" name="{{ elementName }}[addTimeStamp]"
-       {% if options.addTimeStamp is defined %}checked=checked{% endif %}> Add timestamp to url
+<div style="padding-top: 20px">
+    <label for="{{ elementName }}_expectedStatusCode" style="font-weight: normal; margin-bottem: 20px; width: auto; float: left; margin-right: 30px; margin-top: 5px">
+        Expected HTTP Status Code
+    </label>
+    <select name="{{ elementName }}[expectedStatusCode]" id="{{ elementName }}_expectedStatusCode" class="form-control" style="margin-bottom: 20px; width: 450px">
+
+        {% if (options != false and options.expectedStatusCode is defined) %}
+            {% set selectedCode = options.expectedStatusCode %}
+        {% else %}
+            {% set selectedCode = 200 %}
+        {% endif %}
+
+        {% for code,text in statusCodes %}
+            <option {% if code == selectedCode %}selected="selected"{% endif %} value="{{ code }}">{{ code }} ({{ text }})
+            </option>
+        {% endfor %}
+
+    </select>
+
+</div>
+<div>
+    <label for="{{ elementName }}_add" style="font-weight: normal; width: 200px">
+        Add timestamp
+    </label>
+    <input class="switcht" type="checkbox" name="{{ elementName }}[addTimeStamp]" {% if options.addTimeStamp is defined %}checked=checked{% endif %} id="{{ elementName }}_add">
+</div>

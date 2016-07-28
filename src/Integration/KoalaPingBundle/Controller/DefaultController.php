@@ -8,6 +8,7 @@ use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingSystem;
 use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends SystemAwareIntegrationController
 {
@@ -33,9 +34,10 @@ class DefaultController extends SystemAwareIntegrationController
             [
                 'config' => $this->getConfig(),
                 'systems' => $this->getSystems(),
+                'statusCodes' => Response::$statusTexts,
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationKoalaPingBundle:Default:options.html.twig',
-                'optionsInTable' => true,
+                'optionsInTable' => false,
                 'storePath' => $this->generateUrl('leankoala_integration_koala_ping_store', ['project' => $this->getProject()->getIdentifier()])
             ]);
     }
