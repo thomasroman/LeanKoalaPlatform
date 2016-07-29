@@ -2,10 +2,10 @@
 
 namespace LeanKoala\Integration\SmokeBundle\Controller;
 
+use Koalamon\IncidentDashboardBundle\Entity\System;
 use Koalamon\IncidentDashboardBundle\Entity\UserRole;
-use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingConfig;
-use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingSystem;
 use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IntegrationBundle\Util\SystemFilter;
 
 
 class HttpsCertController extends SystemAwareIntegrationController
@@ -20,6 +20,15 @@ class HttpsCertController extends SystemAwareIntegrationController
     protected function getApiKey()
     {
         return ConfigController::API_KEY;
+    }
+
+    /**
+     * @param System[] $systems
+     * @return System[]
+     */
+    protected function filterSystems(array $systems)
+    {
+        return SystemFilter::filterHttps($systems);
     }
 
     public function indexAction()
