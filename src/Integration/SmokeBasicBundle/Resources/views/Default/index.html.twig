@@ -5,10 +5,8 @@
 {% endblock %}
 
 {% block integration_description %}
-    <div class="infobox">
-        {% content "integration-smoke-info" %}
-        The smoke basic test checks the given systems and the first 300 pages found against 21 rules. This includes checks against
-        the html files, the http headers, json files, xml files and security issues.
-        {% endcontent %}
-    </div>
+    {% content "integration-smoke-info" %}
+    The smoke basic test checks the given systems and the first 300 pages found against 21 rules. This includes checks against
+    the html files, the http headers, json files, xml files and security issues.
+    {% endcontent %}
 {% endblock %}
