@@ -3,6 +3,7 @@
 namespace LeanKoala\Integration\SmokeBundle\Controller;
 
 use Koalamon\IncidentDashboardBundle\Entity\UserRole;
+use Koalamon\IntegrationBundle\Util\SystemFilter;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingConfig;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingSystem;
 use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
@@ -20,6 +21,12 @@ class JsonValidatorController extends SystemAwareIntegrationController
     {
         return ConfigController::API_KEY;
     }
+
+    protected function filterSystems(array $systems)
+    {
+        return SystemFilter::filterJson($systems);
+    }
+
 
     public function indexAction()
     {

@@ -4,6 +4,7 @@ namespace LeanKoala\Integration\JsErrorScannerBundle\Controller;
 
 use Koalamon\IncidentDashboardBundle\Entity\UserRole;
 use Koalamon\IntegrationBundle\Controller\SystemAwareIntegrationController;
+use Koalamon\IntegrationBundle\Util\SystemFilter;
 
 class DefaultController extends SystemAwareIntegrationController
 {
@@ -18,6 +19,11 @@ class DefaultController extends SystemAwareIntegrationController
     protected function getApiKey()
     {
         return self::API_KEY;
+    }
+
+    protected function filterSystems(array $systems)
+    {
+        return SystemFilter::filterHtml($systems);
     }
 
     public function indexAction()
