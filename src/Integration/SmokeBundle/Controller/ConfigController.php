@@ -77,8 +77,6 @@ class ConfigController extends SystemAwareIntegrationController
 
             foreach ($httpsCertSystem as $system) {
 
-                var_dump($system['options']);
-
                 if (array_key_exists('expireWarningTime', $system['options'])) {
                     $rule = ['class' => 'whm\Smoke\Rules\Http\HttpsCertificateExpireRule', 'parameters' => ['expireWarningTime' => (int)$system['options']['expireWarningTime']]];
                     $identifier = 'HttpCertExpire_' . $system['system']->getId();
