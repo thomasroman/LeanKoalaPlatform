@@ -1,3 +1,9 @@
 <label for="{{ elementName }}-expireWarningTime" style="width: 180px;">Expiration time in days</label>
 <input type="number" name="{{ elementName }}[expireWarningTime]" value="{% if options.expireWarningTime is defined %}{{ options.expireWarningTime }}{% endif %}"
        id="{{ elementName }}-expireWarningTime" style="width: 75px; padding: 10px">
+
+<br>
+
+<label for="{{ elementName }}-authorityName" style="width: 180px;">Authority Name</label>
+<input type="text" name="{{ elementName }}[authorityName]" value="{% if options.authorityName is defined %}{{ options.authorityName }}{% endif %}" id=" {{ elementName }}-authorityName"
+       style="width: 250px; padding: 10px; margin-top: 10px">

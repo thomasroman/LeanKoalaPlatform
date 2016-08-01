@@ -76,9 +76,17 @@ class ConfigController extends SystemAwareIntegrationController
         foreach ($httpsCertSystems as $httpsCertSystem) {
 
             foreach ($httpsCertSystem as $system) {
+
+                var_dump($system['options']);
+
                 if (array_key_exists('expireWarningTime', $system['options'])) {
                     $rule = ['class' => 'whm\Smoke\Rules\Http\HttpsCertificateExpireRule', 'parameters' => ['expireWarningTime' => (int)$system['options']['expireWarningTime']]];
-                    $identifier = 'HttpCert_' . $system['system']->getId();
+                    $identifier = 'HttpCertExpire_' . $system['system']->getId();
+                    $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
+                }
+                if (array_key_exists('authorityName', $system['options']) && $system['options']['authorityName'] != '') {
+                    $rule = ['class' => 'whm\Smoke\Rules\Http\HttpsCertificateAuthorityNameRule', 'parameters' => ['authorityName' => $system['options']['authorityName']]];
+                    $identifier = 'HttpCertAuthority_' . $system['system']->getId();
                     $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
                 }
             }
@@ -186,15 +194,18 @@ class ConfigController extends SystemAwareIntegrationController
 
                 $regExs = [];
 
-                foreach ($system['options']['regex'] as $regExOptions) {
-                    $regExs[] = $regExOptions['regex'];
+                if (array_key_exists('regex', $system['options'])) {
+                    foreach ($system['options']['regex'] as $regExOptions) {
+                        $regExs[] = $regExOptions['regex'];
+                    }
                 }
 
-                if (is_null($regExs)) {
-                    $regExRules = [];
-                } else {
-                    $regExRules = array_values($regExs);
+                if (empty($regExs)) {
+                    continue;
                 }
+
+                $regExRules = array_values($regExs);
+
                 $rule = ['class' => 'whm\Smoke\Rules\Html\RegExExistsRule', 'parameters' => ['regExs' => $regExRules]];
 
                 $activeSystems[$identifier] = ['systems' => [$system['system']], 'rule' => $rule];
