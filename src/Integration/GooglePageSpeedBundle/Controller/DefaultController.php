@@ -29,6 +29,7 @@ class DefaultController extends SystemAwareIntegrationController
         return $this->render('LeanKoalaIntegrationGooglePageSpeedBundle:Default:index.html.twig',
             [
                 'config' => $this->getConfig(),
+                'wp_tag' => 'page-speed',
                 'systems' => $this->getSystems(),
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationGooglePageSpeedBundle:Default:options.html.twig',

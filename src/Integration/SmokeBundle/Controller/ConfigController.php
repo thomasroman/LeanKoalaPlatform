@@ -64,7 +64,11 @@ class ConfigController extends SystemAwareIntegrationController
             }
         }
 
-        return ['LittleSeo_Robots' => ['systems' => $activeSystems, 'rule' => $rule]];
+        if (!empty($activeSystems)) {
+            return ['LittleSeo_Robots' => ['systems' => $activeSystems, 'rule' => $rule]];
+        } else {
+            return [];
+        }
     }
 
     private function getHttpsCertConfig()
@@ -107,7 +111,11 @@ class ConfigController extends SystemAwareIntegrationController
             }
         }
 
-        return ['JsonValidator_Default' => ['systems' => $activeSystems, 'rule' => $rule]];
+        if (empty($activeSystems)) {
+            return [];
+        } else {
+            return ['JsonValidator_Default' => ['systems' => $activeSystems, 'rule' => $rule]];
+        }
     }
 
     private function getHttpHeadConfig()

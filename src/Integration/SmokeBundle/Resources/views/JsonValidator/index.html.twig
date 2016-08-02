@@ -4,6 +4,11 @@
     Json Validator
 {% endblock %}
 
+
+{% block noContentToDisplay %}
+    No JSON document was found within your systems.  <a href="{{ path('koalamon_default_system_admin', {'project': project.identifier}) }}">Go to system overview</a>.
+{% endblock %}
+
 {% block integration_description %}
     {% content "integration-smoke-json-validator" %}
     The Json Validator checks if the given json files are well formed.
