@@ -1,0 +1,3 @@
+lean_koala_help_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LeanKoalaHelpBundle:Default:index }

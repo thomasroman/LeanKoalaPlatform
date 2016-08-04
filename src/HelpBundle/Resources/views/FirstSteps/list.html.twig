@@ -1,0 +1,89 @@
+{% if currentSteps != sumSteps %}
+    <style>
+        #first-step-header {
+            display: none;
+        }
+
+        #first-steps h2 {
+            margin-top: 11px;
+            font-size: 14px;
+            color: black;
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        #first-step-container {
+            margin-top: 40px;
+        }
+
+        #first-step-container:after {
+            border-bottom: 3px solid black;
+            content: '';
+        }
+    </style>
+
+    <div id="first-step-container" class="content clickable">
+        <div class="box-help" style="margin-bottom: 50px; height: 80px; overflow: hidden" onclick="$(this.parentNode).removeClass('clickable');$(this).css('height', 'auto');">
+            <div id="first-steps">
+                <h2>First Steps</h2>
+                <div class="progress" style="">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ currentSteps }}" aria-valuemin="0" aria-valuemax="{{ sumSteps }}"
+                         style="width: {{ currentSteps / sumSteps * 100 | round }}%;{% if currentSteps == 0 %}color: black; margin-left: 10px{% endif %}">
+                        <div style="margin-top: 10px">{{ (currentSteps / sumSteps * 100) | round }}%</div>
+                    </div>
+                </div>
+
+                <div id="maininfo">
+                    {% content "first-steps-help" %}
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+                    et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    {% endcontent %}
+                </div>
+
+                <div class="step clickable{% if hasComponents %} done{% endif %}" onclick="location.href='{{ path('koalamon_default_system_admin', {'project': project.identifier}) }}'">
+                    Setup Systems and Components
+                </div>
+                <div class="step-info">
+                    {% content "first-steps-help-systems" %}
+                    To get everything started you need to integrate your existing monitoring tools to your project. Please follow the individual integration procedures in our tutorials. Your project
+                    is ready to use once we receive an event from one of your integrations. We will then automatically identify the event and configure Koalamon for you.
+                    {% endcontent %}
+                </div>
+
+                <div class="step clickable{% if hasIntegrationConfigs %} done{% endif %}" onclick="location.href='{{ path('koalamon_integration_home', {'project': project.identifier}) }}'">
+                    Setup Integrations
+                </div>
+                <div class="step-info">
+                    {% content "first-steps-help-integration" %}
+                    To get everything started you need to integrate your existing monitoring tools to your project. Please follow the individual integration procedures in our tutorials. Your project
+                    is ready to use once we receive an event from one of your integrations. We will then automatically identify the event and configure Koalamon for you.
+                    {% endcontent %}
+                </div>
+
+                <div class="step clickable{% if hasNotificationSenders %} done{% endif %}" onclick="location.href='{{ path('koalamon_notification_home', {'project': project.identifier}) }}'">
+                    Setup Notification Channels
+                </div>
+                <div class="step-info">
+                    {% content "first-steps-help-notification" %}
+                    To stay tuned on incoming incidents we request you to setup your notification channels. Please provide us with the information how Koalamon can get in touch with you for this
+                    project.
+                    {% endcontent %}
+                </div>
+
+                <div class="step clickable{% if hasNotificationAlerts %} done{% endif %}" onclick="location.href='{{ path('koalamon_notification_alerts_home', {'project': project.identifier}) }}'">
+                    Setup Alerting
+                </div>
+                <div class="step-info">
+                    {% content "first-steps-help-alert" %}
+                    Koalamon does not want to bother you with irrelevant alertings. In the last and final step you can define when you want to be alerted.
+                    {% endcontent %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div></div>
+{% endif %}
