@@ -1,3 +1,7 @@
+lean_koala_help:
+    resource: "@LeanKoalaHelpBundle/Resources/config/routing.yml"
+    prefix:   /
+
 leankoala_integration_zaproxy:
     resource: "@LeanKoalaIntegrationZAProxyBundle/Resources/config/routing.yml"
     prefix:   /

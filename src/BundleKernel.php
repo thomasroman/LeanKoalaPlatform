@@ -22,6 +22,7 @@ class BundleKernel
             new \LeanKoala\Integration\SmokeBundle\LeanKoalaIntegrationSmokeBundle(),
             new \LeanKoala\Integration\SmokeBasicBundle\LeanKoalaIntegrationSmokeBasicBundle(),
             new \LeanKoala\Integration\ZAProxyBundle\LeanKoalaIntegrationZAProxyBundle(),
+            new \LeanKoala\HelpBundle\LeanKoalaHelpBundle(),
         ];
 
         return $bundles;
