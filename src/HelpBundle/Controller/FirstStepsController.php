@@ -37,11 +37,6 @@ class FirstStepsController extends \KoalamonCom\Plattform\HelpBundle\Controller\
         } else {
             $currentSteps = 0;
 
-            $hasEvents = $this->hasEventIdentifiers($project);
-            if ($hasEvents) {
-                $currentSteps++;
-            }
-
             $hasComponents = $this->hasComponents($project);
             if ($hasComponents) {
                 $currentSteps++;

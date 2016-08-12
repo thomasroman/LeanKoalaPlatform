@@ -25,7 +25,7 @@ class RestController extends Controller
                 if (!array_key_exists($system->getId(), $systemCollections)) {
                     $systemCollections[$system->getId()]['system'] = $system;
                 }
-                $systemCollections[$system->getId()]['collections'][] = $collection;
+                $systemCollections[$system->getId()]['options'][] = $collection;
             }
         }
 
