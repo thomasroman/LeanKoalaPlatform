@@ -29,6 +29,14 @@ class RestController extends Controller
             }
         }
 
-        return new JsonResponse($systemCollections);
+	$result = [];
+	foreach($systemCollections as $collection) {
+		$result[] = $collection;
+	}
+
+	$response = new JsonResponse($result);
+	$response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT);
+
+        return $response;
     }
 }
