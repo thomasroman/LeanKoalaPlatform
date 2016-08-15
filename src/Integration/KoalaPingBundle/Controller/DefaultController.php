@@ -1,6 +1,7 @@
 <?php
 
 namespace LeanKoala\Integration\KoalaPingBundle\Controller;
+
 use Koalamon\IncidentDashboardBundle\Controller\ProjectAwareController;
 use Koalamon\IncidentDashboardBundle\Entity\UserRole;
 use LeanKoala\Integration\KoalaPingBundle\Entity\KoalaPingConfig;
@@ -30,11 +31,15 @@ class DefaultController extends SystemAwareIntegrationController
     {
         $this->assertUserRights(UserRole::ROLE_ADMIN);
 
+        $statusTexts = Response::$statusTexts;
+        $statusTexts[0] = 'Connection Error';
+
         return $this->render('@LeanKoalaIntegrationKoalaPing/Default/index.html.twig',
             [
                 'config' => $this->getConfig(),
+                'wp_tag' => 'koalaping',
                 'systems' => $this->getSystems(),
-                'statusCodes' => Response::$statusTexts,
+                'statusCodes' => $statusTexts,
                 'integratedSystems' => $this->getIntegratedSystems(),
                 'optionsTemplate' => 'LeanKoalaIntegrationKoalaPingBundle:Default:options.html.twig',
                 'optionsInTable' => false,
